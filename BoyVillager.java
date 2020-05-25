@@ -13,11 +13,14 @@ public class BoyVillager extends AnimalCrossingCharacter
     {
          villagerRight = new GreenfootImage[4];
          villagerLeft = new GreenfootImage[4]; 
-        
-         GreenfootImage image = getImage();
-         image.scale(100, 140);
-         setImage(image);
          
+         imageLeft = new GreenfootImage("boy_standleft.PNG");
+         imageRight = new GreenfootImage("boy_standright.PNG");
+         imageLeft.scale(100, 140);
+         imageRight.scale(100, 140);
+         
+         GreenfootImage image = null;
+         setImage(imageRight);        
          for(int i = 0; i < villagerRight.length; i++)
          {
              image = new GreenfootImage("boy_walkright" + i + ".PNG"); 
@@ -33,6 +36,14 @@ public class BoyVillager extends AnimalCrossingCharacter
     }
     public void act() 
     {
-         checkKeys();
+         status = checkKeys();
+         
+         if (status == RIGHT_SCREEN)
+         {
+             Village village = new Village();
+             village.addObject(new BoyVillager(),1, 550);
+             Greenfoot.setWorld(village);
+             
+         }
     } 
 }
