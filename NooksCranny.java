@@ -5,14 +5,18 @@ import greenfoot.*;
  * @Kat Nguyen 
  * @5/24/2020
  */
-public class Village extends World
+public class NooksCranny extends World
 {
-    public Village()
-    {    
-        super(750, 650, 1); 
-        prepare();
+    public NooksCranny()
+    {            
+        this (new BoyVillager());
+        prepare();        
     }
-
+    public NooksCranny(BoyVillager villager)
+    {
+        super(750, 650, 1);
+        addObject(villager, 1, 550);
+    }
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
@@ -20,7 +24,6 @@ public class Village extends World
     private void prepare()
     {
         TomNook tomNook = new TomNook();
-        addObject(tomNook,524,380);
-        tomNook.setLocation(298,507);
+        addObject(tomNook,400,500);
     }
 }
