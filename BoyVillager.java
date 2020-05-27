@@ -15,7 +15,6 @@ public class BoyVillager extends AnimalCrossingCharacter
     final static int ORCHARD = 3;
     final static int BEACH = 4;
     final static int GARDEN = 5;
-    private int worldType = START;
     public BoyVillager()
     {
          villagerRight = new GreenfootImage[4];
@@ -68,28 +67,39 @@ public class BoyVillager extends AnimalCrossingCharacter
     } 
     private void checkNextLevel()
     {
-        if (worldType == START)
+        String worldType = getWorld().getClass().getName();
+        //System.out.println("World type: " + worldType);
+        if (worldType.equals("AnimalCrossingWorld"))
         {
             if (getX() >= getWorld().getWidth()-1)
             {
-                worldType = NOOKS_CRANNY;
-                Greenfoot.setWorld(new NooksCranny(this));
+                Greenfoot.setWorld(new NooksCranny(this,"left"));
+                //Greenfoot.setWorld(new Orchard(this));
             }           
         }
-        else if (worldType == NOOKS_CRANNY)
+        else if (worldType.equals("NooksCranny"))
         {            
             if (getY() >= getWorld().getHeight()-1)
             {
-                worldType = CROSSROAD;
-                Greenfoot.setWorld(new Crossroad(this));            
+                Greenfoot.setWorld(new Crossroad(this,"top"));            
             }
         }        
-        else if (worldType == CROSSROAD)
+        else if (worldType.equals("Crossroad"))
         {
             if (getY() <= 0)
             {
-                worldType = NOOKS_CRANNY;
-                Greenfoot.setWorld(new NooksCranny(this));
+                Greenfoot.setWorld(new NooksCranny(this,"bottom"));
+            }
+            else if(getX() >= getWorld().getWidth()-1)
+            {
+                Greenfoot.setWorld(new Orchard(this));
+            }
+        }
+        else if (worldType.equals("Orchard"))
+        {
+            if(getX() <= 0)
+            {
+                Greenfoot.setWorld(new Crossroad(this,"right"));
             }
         }
     }

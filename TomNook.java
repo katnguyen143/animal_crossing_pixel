@@ -11,7 +11,7 @@ public class TomNook extends AnimalCrossingCharacter
     public TomNook()
     {
          GreenfootImage image = getImage();
-         image.scale(100, 140);
+         image.scale(85, 135);
          setImage(image);
     }
     public void act() 

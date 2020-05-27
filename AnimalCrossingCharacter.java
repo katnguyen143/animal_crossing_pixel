@@ -82,7 +82,7 @@ public class AnimalCrossingCharacter extends Actor
                 walkValue = 0; 
                 walkIndex = 0;
             }
-            System.out.println("Up: " + walkIndex);
+            //System.out.println("Up: " + walkIndex);
             setImage(villagerUp[walkIndex]);
             
             walkValue += 0.33;  
@@ -111,7 +111,7 @@ public class AnimalCrossingCharacter extends Actor
         }
         else
         {
-            System.out.println(direction);
+            //System.out.println(direction);
             if (direction == LEFT)            
                 setImage(imageLeft);
             else if (direction == RIGHT)
