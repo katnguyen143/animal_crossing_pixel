@@ -8,10 +8,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Orange extends Fruit
 {
-    /**
-     * Act - do whatever the Orange wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    public Orange()
+    {
+        GreenfootImage image = getImage();
+        image.scale(67, 67);
+    }
     public void act() 
     {
         // Add your action code here.

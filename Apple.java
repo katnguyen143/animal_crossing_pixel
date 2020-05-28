@@ -11,7 +11,8 @@ public class Apple extends Fruit
     public Apple()
     {
         GreenfootImage image = getImage();
-        image.scale(80, 80);
+        //image.scale(80, 80);
+        image.scale(67, 67);
     }
     public void act() 
     {

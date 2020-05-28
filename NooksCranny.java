@@ -7,6 +7,7 @@ import greenfoot.*;
  */
 public class NooksCranny extends World
 {
+    private Inventory inv = new Inventory();
     public NooksCranny()
     {            
         this (new BoyVillager(),"left");
@@ -30,5 +31,6 @@ public class NooksCranny extends World
     {
         TomNook tomNook = new TomNook();
         addObject(tomNook,400,500);
+        addObject(inv, getWidth() / 2, getHeight() / 2 );
     }
 }

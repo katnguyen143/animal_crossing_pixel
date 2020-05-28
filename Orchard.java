@@ -7,29 +7,32 @@ import greenfoot.*;
  */
 public class Orchard extends World
 {
+    private Inventory inv = new Inventory();
     public Orchard()
     {    
         this (new BoyVillager());         
-        //prepare();
+        
     }
-
     public Orchard(BoyVillager villager)
     {
         super(750, 650, 1);
-        addObject(villager, 1, 300);
-
+        
+        
         Tree tree = getTree(465, 460);
         Tree tree2 = getTree(265, 220);
         Tree tree3 = getTree(615, 170);
+        
+        addObject(villager, 1, 300);
+        
+        prepare();
     }
-
     public Tree getTree(int x, int y)
     {
         Tree tree = new Tree();
         addObject(tree, x, y);
-        addObject(new Apple(), tree.getX()+5, tree.getY()-106);
-        addObject(new Apple(), tree.getX()-64, tree.getY()-34);
-        addObject(new Apple(), tree.getX()+70, tree.getY()-25);
+        //addObject(new Apple(), tree.getX()+5, tree.getY()-106);
+        //addObject(new Apple(), tree.getX()-64, tree.getY()-34);
+        //addObject(new Apple(), tree.getX()+70, tree.getY()-25);
         return tree;
     }
 
@@ -39,5 +42,6 @@ public class Orchard extends World
      */
     private void prepare()
     {
+        addObject(inv, getWidth() / 2, getHeight() / 2 );
     }
 }

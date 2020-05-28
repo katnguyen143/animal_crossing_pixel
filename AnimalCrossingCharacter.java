@@ -105,10 +105,12 @@ public class AnimalCrossingCharacter extends Actor
             setLocation(getX(), getY()+DISTANCE);
             direction = DOWN;           
         }
+        /*
         else if (Greenfoot.isKeyDown("i"))
         {
             showInventory();
         }
+        */
         else
         {
             //System.out.println(direction);
@@ -127,6 +129,7 @@ public class AnimalCrossingCharacter extends Actor
     {
         if(!inventoryShowing)
         {
+            /*
             Actor background = new Actor() {};
             GreenfootImage image = new GreenfootImage(500, 400);
             image.setColor(new Color(100, 0, 0));
@@ -134,6 +137,8 @@ public class AnimalCrossingCharacter extends Actor
             background.setImage(image);
             getWorld().addObject(background, getWorld().getWidth()/2, getWorld().getHeight()/2);
             inventoryObjects.add(background);
+            */
+            addInventory();
             inventoryShowing = true;
         } 
         else
@@ -142,6 +147,16 @@ public class AnimalCrossingCharacter extends Actor
             inventoryShowing = false;
             inventoryObjects = new ArrayList(0);
         }
-    }        
+    }
+    
+    public void addInventory()
+    {
+        Apple apple = new Apple();
+        getWorld().addObject( apple, 200, 200 );
+        Orange orange = new Orange();
+        getWorld().addObject( orange, 500, 250 );
+        inventoryObjects.add( apple );
+        inventoryObjects.add( orange );
+    }
                 
 }

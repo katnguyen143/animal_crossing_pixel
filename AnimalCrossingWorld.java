@@ -8,16 +8,17 @@ import greenfoot.*;
 
 public class AnimalCrossingWorld extends World
 {
+    public static Inventory inv = new Inventory();
     public AnimalCrossingWorld()
     {
         super(750, 650, 1);
         prepare();
+        addObject(inv, getWidth() / 2, getHeight() / 2 );
     }
 
     public AnimalCrossingWorld(int x, int y, int z)
     {    
-        super(750, 650, 1); 
-
+        super(750, 650, 1);        
     }       
 
     /**

@@ -63,7 +63,8 @@ public class BoyVillager extends AnimalCrossingCharacter
     public void act() 
     {
          status = checkKeys();         
-         checkNextLevel();        
+         checkNextLevel();
+         
     } 
     private void checkNextLevel()
     {
@@ -73,9 +74,9 @@ public class BoyVillager extends AnimalCrossingCharacter
         {
             if (getX() >= getWorld().getWidth()-1)
             {
-                Greenfoot.setWorld(new NooksCranny(this,"left"));
-                //Greenfoot.setWorld(new Orchard(this));
-            }           
+                //Greenfoot.setWorld(new NooksCranny(this,"left"));
+                Greenfoot.setWorld(new Orchard(this));
+            }         
         }
         else if (worldType.equals("NooksCranny"))
         {            
@@ -97,8 +98,25 @@ public class BoyVillager extends AnimalCrossingCharacter
         }
         else if (worldType.equals("Orchard"))
         {
-            if(getX() <= 0)
+            if (isTouching(Tree.class))
             {
+                //Actor actor = (Actor)(getWorld().getObjects(Tree.class).get(0));
+                Tree tree = (Tree)getOneIntersectingObject(Tree.class);
+                tree.dropFruits();
+                
+            }
+            if (isTouching(Fruit.class))
+            {
+                Fruit fruit = (Fruit)getOneIntersectingObject(Fruit.class);
+                System.out.println("is touching fruit");
+                // add fruit to inventory
+                Global.collectedObjects.add(fruit);
+                // remove fruit from world
+                getWorld().removeObject(fruit);
+                
+            }
+            if (getX() <= 0)
+            {                
                 Greenfoot.setWorld(new Crossroad(this,"right"));
             }
         }
