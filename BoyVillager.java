@@ -63,19 +63,17 @@ public class BoyVillager extends AnimalCrossingCharacter
     public void act() 
     {
          status = checkKeys();         
-         checkNextLevel();
-         
+         checkNextLevel();         
     } 
     private void checkNextLevel()
     {
         String worldType = getWorld().getClass().getName();
-        //System.out.println("World type: " + worldType);
         if (worldType.equals("AnimalCrossingWorld"))
         {
             if (getX() >= getWorld().getWidth()-1)
             {
-                //Greenfoot.setWorld(new NooksCranny(this,"left"));
-                Greenfoot.setWorld(new Orchard(this));
+                Greenfoot.setWorld(new NooksCranny(this,"left"));
+                //Greenfoot.setWorld(new Orchard(this));
             }         
         }
         else if (worldType.equals("NooksCranny"))
@@ -95,12 +93,19 @@ public class BoyVillager extends AnimalCrossingCharacter
             {
                 Greenfoot.setWorld(new Orchard(this));
             }
+            else if(getY() >= getWorld().getHeight()-1)
+            {
+                Greenfoot.setWorld(new Beach(this, "top"));
+            }
+            else if(getX() <= 0)
+            {
+                Greenfoot.setWorld(new Garden(this, "right"));
+            }
         }
         else if (worldType.equals("Orchard"))
         {            
             if (isTouching(Tree.class))
             {
-                //Actor actor = (Actor)(getWorld().getObjects(Tree.class).get(0));
                 Tree tree = (Tree)getOneIntersectingObject(Tree.class);
                 tree.dropFruits();                
             }
@@ -126,6 +131,20 @@ public class BoyVillager extends AnimalCrossingCharacter
             if (getX() <= 0)
             {                
                 Greenfoot.setWorld(new Crossroad(this,"right"));
+            }
+        }
+        else if (worldType.equals("Beach"))
+        {
+            if (getY() <= 0)
+            {
+                Greenfoot.setWorld(new Crossroad(this,"bottom"));
+            }
+        }
+        else if (worldType.equals("Garden"))
+        {
+            if (getX() >= getWorld().getWidth()-1)
+            {
+                Greenfoot.setWorld(new Crossroad(this, "left"));
             }
         }
     }

@@ -9,19 +9,18 @@ public class NooksCranny extends World
 {
     private Inventory inv = new Inventory();
     public NooksCranny()
-    {            
-        this (new BoyVillager(),"left");
-        prepare();        
+    {                    
+        this (new BoyVillager(),"left");  
+        prepare();
     }
     public NooksCranny(BoyVillager villager, String from )
     {
         super(750, 650, 1);
         prepare();
-        System.out.println("Villager X: " + villager.getX() + "Villager Y: " + villager.getY());
         if ( from.equals( "left" ) )
             addObject(villager, 1, getHeight()-100);
         else if( from.equals( "bottom" ) )
-            addObject(villager, villager.getX(), getHeight() );
+            addObject(villager, villager.getX(), getHeight() );        
     }
     /**
      * Prepare the world for the start of the program.

@@ -23,7 +23,6 @@ public class InventoryFullDialogue extends Actor
     {        
         if (Greenfoot.mouseClicked(this))
         {   
-            System.out.println("mouse clicked");
             displayed = false;
             getWorld().removeObject(this);           
         }
