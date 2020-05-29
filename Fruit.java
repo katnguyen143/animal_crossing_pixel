@@ -8,12 +8,43 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Fruit extends Actor
 {
-    /**
-     * Act - do whatever the Fruit wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    public final static int ON_TREE = 0;
+    public final static int DROPPING = 1;
+    public final static int DROPPED = 2;
+    public final static int IN_INVENTORY = 3;
+    public int state = ON_TREE;
+    protected int bottom;
     public void act() 
     {
-        // Add your action code here.
+        if (state == DROPPING)
+        {
+            int y = getY() + 5;
+            if (y >= bottom)
+            {
+                y = bottom;
+                state = DROPPED;
+            }
+            else
+            {
+                setLocation (getX(), y);
+            }
+        }
     }    
+    public void dropFruit(int bottom)
+    {
+        this.bottom = bottom;
+        this.state = DROPPING;
+    }
+    public boolean isOnTree()
+    {
+        return state == ON_TREE;
+    }
+    public boolean isDropped()
+    {
+        return state == DROPPED;
+    }
+    public void setInInventoryState()
+    {
+        state = IN_INVENTORY;
+    }
 }

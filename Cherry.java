@@ -11,10 +11,10 @@ public class Cherry extends Fruit
     public Cherry()
     {
         GreenfootImage image = getImage();
-        image.scale(65, 65);
+        image.scale(57, 65);
     }
     public void act() 
     {
-        // Add your action code here.
+        super.act();
     }    
 }

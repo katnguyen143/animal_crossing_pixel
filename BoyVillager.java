@@ -27,10 +27,10 @@ public class BoyVillager extends AnimalCrossingCharacter
          imageUp = new GreenfootImage("boy_up1.PNG");
          imageDown = new GreenfootImage("boy_down1.PNG");
          
-         imageLeft.scale(100, 140);
-         imageRight.scale(100, 140);
-         imageUp.scale(100, 140);
-         imageDown.scale(100, 140);
+         imageLeft.scale(75, 140);
+         imageRight.scale(75, 140);
+         imageUp.scale(85, 140);
+         imageDown.scale(85, 140);
          
          GreenfootImage image = null;
          setImage(imageRight); 
@@ -38,25 +38,25 @@ public class BoyVillager extends AnimalCrossingCharacter
          for(int i = 0; i < villagerRight.length; i++)
          {
              image = new GreenfootImage("boy_walkright" + i + ".PNG"); 
-             image.scale(100, 140);
+             image.scale(80, 140);
              villagerRight[i] = image;
          }
          for(int i = 0; i < villagerLeft.length; i++)
          {
              image = new GreenfootImage("boy_walkleft" + i + ".PNG"); 
-             image.scale(100, 140);
+             image.scale(80, 140);
              villagerLeft[i] = image;
          }
          for(int i = 0; i < villagerUp.length; i++)
          {
              image = new GreenfootImage("boy_up" + i + ".PNG"); 
-             image.scale(100, 140);
+             image.scale(85, 140);
              villagerUp[i] = image;
          }
          for(int i = 0; i < villagerDown.length; i++)
          {
              image = new GreenfootImage("boy_down" + i + ".PNG"); 
-             image.scale(100, 140);
+             image.scale(85, 140);
              villagerDown[i] = image;
          }
     }
@@ -97,23 +97,31 @@ public class BoyVillager extends AnimalCrossingCharacter
             }
         }
         else if (worldType.equals("Orchard"))
-        {
+        {            
             if (isTouching(Tree.class))
             {
                 //Actor actor = (Actor)(getWorld().getObjects(Tree.class).get(0));
                 Tree tree = (Tree)getOneIntersectingObject(Tree.class);
-                tree.dropFruits();
-                
+                tree.dropFruits();                
             }
             if (isTouching(Fruit.class))
             {
                 Fruit fruit = (Fruit)getOneIntersectingObject(Fruit.class);
-                System.out.println("is touching fruit");
-                // add fruit to inventory
-                Global.collectedObjects.add(fruit);
-                // remove fruit from world
-                getWorld().removeObject(fruit);
-                
+                if (fruit.isDropped())
+                {                                        
+                    fruit.setInInventoryState();
+                    // add fruit to inventory                   
+                    boolean isFull = Inventory.addToInventory(fruit);
+                    if (isFull)
+                    {
+                        Inventory.displayInventoryFull(getWorld());
+                    }
+                    else
+                    {
+                        // remove fruit from world
+                        getWorld().removeObject(fruit);
+                    }
+                }
             }
             if (getX() <= 0)
             {                

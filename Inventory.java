@@ -11,6 +11,7 @@ public class Inventory extends Actor
     //this is creates an arraylist that will hold the items the player collects
     public static boolean inventoryShowing = false;
     public ArrayList <Actor> inventoryObjects = new ArrayList <Actor>();
+    private static final int INVENTORY_SIZE = 12;
     //size of screen 1169*700
 
     /**
@@ -21,34 +22,64 @@ public class Inventory extends Actor
     {
         checkInv();
     }
-    public void addToInventory(Actor x)
+    // returns true if the inventory is full
+    public static boolean addToInventory(Actor x)
     {
-        Global.collectedObjects.add(x);
+        if (Global.collectedObjects.size() < INVENTORY_SIZE)
+        {
+            Global.collectedObjects.add(x);
+            return false;
+        }
+        return true;
         //System.out.println(reference.collectedObjects.size());
+    }
+    public static void displayInventoryFull(World world)
+    {
+        if (InventoryFullDialogue.hasDisplayed() == false)
+        {            
+            world.addObject(new InventoryFullDialogue(), world.getWidth() / 2, world.getHeight() / 2);
+        }
     }
     public void addedToWorld(World World)
     {
         getImage().setTransparency(0);
         getImage().scale(495,429);
-        //addToInventory(new Apple());
-        //addToInventory(new Orange());
-        //addToInventory(new Pear());
-        //addToInventory(new Cherry());
-        //addToInventory(new Peach());
     }
     public void toggleInventory()
     {
         if(!inventoryShowing)
         {
             getImage().setTransparency(255);
-            for (int i = 0; i < Global.collectedObjects.size();i++)
+            for (int i = 0; i < Global.collectedObjects.size(); i++)
             {
                 Actor item = Global.collectedObjects.get(i);
                 GreenfootImage itemImage = new GreenfootImage(item.getImage());
-                itemImage.scale(65, 65);
+                itemImage.scale(58, 60);
                 item.setImage(itemImage);
-                int xItem = 185 + i * 94;
-                getWorld().addObject(item, xItem, 229);
+                int xItem = 0;
+                int y = 0;
+                if (i < 5)
+                {
+                    xItem = 185 + i * 94;
+                    y = 229;
+                }
+                else if (i < 10)
+                {
+                    int j = i % 5;
+                    xItem = 185 + j * 94;
+                    y = 350;
+                }
+                else if (i == 10)
+                {
+                    xItem = 185;
+                    y = 471;
+                }               
+                else // if i = 11
+                {
+                    xItem = 561;
+                    y = 471;
+                }
+                getWorld().addObject(item, xItem, y);
                 inventoryObjects.add(item);
             }
             inventoryShowing = true;
@@ -71,7 +102,6 @@ public class Inventory extends Actor
             //System.out.println("removeksldjfha");
         }
     }
-
     public void checkInv()
     {
         if (Greenfoot.isKeyDown("i") )
@@ -80,19 +110,15 @@ public class Inventory extends Actor
             Greenfoot.delay(10);
         }
     }
-
     public void goAway()
     {
         getImage().setTransparency(0);
         getWorld().removeObjects(inventoryObjects);
         inventoryShowing = false;
-    }
-    
+    }    
     public void remove (Actor a)
     {
         Global.collectedObjects.remove(a);
-    }
- 
-        
+    }        
 }
 

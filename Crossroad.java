@@ -14,7 +14,6 @@ public class Crossroad extends World
     public Crossroad(BoyVillager villager, String from)
     {
         super(750, 650, 1); 
-        System.out.println("Villager X: " + villager.getX() + " Villager Y: " + villager.getY());
         
         if ( from.equals( "right" ) )
             addObject(villager, getWidth()-1, villager.getY() );  

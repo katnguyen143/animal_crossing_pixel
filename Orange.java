@@ -11,10 +11,10 @@ public class Orange extends Fruit
     public Orange()
     {
         GreenfootImage image = getImage();
-        image.scale(67, 67);
+        image.scale(59, 55);
     }
     public void act() 
     {
-        // Add your action code here.
+        super.act();
     }    
 }

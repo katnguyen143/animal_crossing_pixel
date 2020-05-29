@@ -12,11 +12,10 @@ public class Apple extends Fruit
     {
         GreenfootImage image = getImage();
         //image.scale(80, 80);
-        image.scale(67, 67);
+        image.scale(60, 67);
     }
     public void act() 
     {
-        // Add your action code here.
-        
+        super.act();        
     }    
 }

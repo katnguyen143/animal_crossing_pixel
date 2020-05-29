@@ -15,12 +15,10 @@ public class AnimalCrossingWorld extends World
         prepare();
         addObject(inv, getWidth() / 2, getHeight() / 2 );
     }
-
     public AnimalCrossingWorld(int x, int y, int z)
     {    
         super(750, 650, 1);        
     }       
-
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
