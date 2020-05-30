@@ -1,23 +1,17 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 import java.util.*;
 /**
- * Write a description of class Inventory here.
+ * Player's inventory
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Kat Nguyen 
+ * @5/29/2020
  */
 public class Inventory extends Actor
-{
-    //this is creates an arraylist that will hold the items the player collects
+{    
     public static boolean inventoryShowing = false;
+    //arraylist that will hold the items the player collects
     public ArrayList <Actor> inventoryObjects = new ArrayList <Actor>();
     private static final int INVENTORY_SIZE = 12;
-    //size of screen 1169*700
-
-    /**
-     * Act - do whatever the Inventory wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     public void act() 
     {
         checkInv();
@@ -31,7 +25,6 @@ public class Inventory extends Actor
             return false;
         }
         return true;
-        //System.out.println(reference.collectedObjects.size());
     }
     public static void displayInventoryFull(World world)
     {
@@ -121,4 +114,3 @@ public class Inventory extends Actor
         Global.collectedObjects.remove(a);
     }        
 }
-

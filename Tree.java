@@ -1,10 +1,10 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 import java.lang.*;
 /**
- * Write a description of class Tree here.
+ * Tree: Randomizes fruits on trees and drops fruit.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Kat Nguyen 
+ * 5/29/2020
  */
 public class Tree extends Actor
 {    

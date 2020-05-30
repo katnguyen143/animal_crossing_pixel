@@ -1,9 +1,9 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 /**
- * Write a description of class Crossroad here.
+ * Crossroad connecting four different worlds.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Kat Nguyen
+ * @5/29/2020
  */
 public class Crossroad extends World
 {
@@ -14,8 +14,7 @@ public class Crossroad extends World
     }
     public Crossroad(BoyVillager villager, String from)
     {
-        super(750, 650, 1); 
-        
+        super(750, 650, 1);         
         if (from.equals("right"))
             addObject(villager, getWidth()-1, villager.getY());  
         else if (from.equals("left"))

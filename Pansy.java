@@ -1,5 +1,4 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import greenfoot.*;
 /**
  * Write a description of class Pansy here.
  * 
@@ -8,10 +7,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Pansy extends Flower
 {
-    /**
-     * Act - do whatever the Pansy wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    public Pansy()
+    {
+        GreenfootImage image = getImage();
+        image.scale(60, 80);
+    }
     public void act() 
     {
         // Add your action code here.

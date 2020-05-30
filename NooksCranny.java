@@ -17,15 +17,11 @@ public class NooksCranny extends World
     {
         super(750, 650, 1);
         prepare();
-        if ( from.equals( "left" ) )
+        if (from.equals( "left" ))
             addObject(villager, 1, getHeight()-100);
-        else if( from.equals( "bottom" ) )
+        else if (from.equals( "bottom" ))
             addObject(villager, villager.getX(), getHeight() );        
     }
-    /**
-     * Prepare the world for the start of the program.
-     * That is: create the initial objects and add them to the world.
-     */
     private void prepare()
     {
         TomNook tomNook = new TomNook();

@@ -1,9 +1,9 @@
 import greenfoot.*;
 /**
- * Orchard - The player picks up fruit from trees here.
+ * Orchard: The player picks up fruit from trees here.
  * 
  * @Kat Nguyen 
- * @5/26/2020
+ * @5/29/2020
  */
 public class Orchard extends World
 {
@@ -27,14 +27,8 @@ public class Orchard extends World
     {
         Tree tree = new Tree();
         addObject(tree, x, y+40);
-        //Treetop treetop = new Treetop();
-        //addObject(treetop, x, y);
         return tree;
     }
-    /**
-     * Prepare the world for the start of the program.
-     * That is: create the initial objects and add them to the world.
-     */
     private void prepare()
     {
         addObject(inv, getWidth() / 2, getHeight() / 2 );

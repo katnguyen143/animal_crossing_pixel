@@ -1,19 +1,28 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import greenfoot.*;
 /**
- * Write a description of class Shell here.
+ * Shell
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Kat Nguyen
+ * @5/29/2020
  */
 public class Shell extends Actor
 {
-    /**
-     * Act - do whatever the Shell wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    public int state = 0;
+    public static final int IN_INVENTORY = 1;
     public void act() 
     {
         // Add your action code here.
-    }    
+    }      
+    public void setInInventoryState()
+    {
+        state = IN_INVENTORY;
+    }
+    public boolean isInInventory()
+    {
+        return state == IN_INVENTORY;
+    }
+    public void deleteShell()
+    {
+        getWorld().removeObject(new Shell());
+    }
 }

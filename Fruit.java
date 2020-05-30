@@ -1,10 +1,9 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import greenfoot.*;
 /**
- * Write a description of class Fruit here.
+ * An object that the player can pick up to add to their inventory.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Kat Nguyen
+ * @5/29/2020
  */
 public class Fruit extends Actor
 {

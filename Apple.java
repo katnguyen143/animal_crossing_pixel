@@ -1,17 +1,15 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import greenfoot.*;
 /**
- * Write a description of class Apple here.
+ * Apple class
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @Kat Nguyen
+ * @5/29/2020
  */
 public class Apple extends Fruit
 {    
     public Apple()
     {
         GreenfootImage image = getImage();
-        //image.scale(80, 80);
         image.scale(60, 67);
     }
     public void act() 
